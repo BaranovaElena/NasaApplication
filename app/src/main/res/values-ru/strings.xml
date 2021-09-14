@@ -7,4 +7,5 @@
     <string name="server_error">Ошибка сервера. Пожалйста повторите попытку позже</string>
     <string name="not_image_error">Картинка дня сегодня не картинка :(</string>
     <string name="snack_bar_action_text">Перезагрузить</string>
+    <string name="nav_pod_title">Фото дня</string>
 </resources>

@@ -6,4 +6,5 @@
     <string name="server_error">Server Error. Please try again later</string>
     <string name="not_image_error">Loaded picture of the day is not a picture today :(</string>
     <string name="snack_bar_action_text">Reload</string>
+    <string name="nav_pod_title">Daily photo</string>
 </resources>
