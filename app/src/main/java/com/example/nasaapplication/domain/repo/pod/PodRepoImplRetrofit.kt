@@ -10,7 +10,7 @@ class PodRepoImplRetrofit : PodRepo {
         NasaApplication.podRetrofit.create(PodRetrofitService::class.java)
     }
 
-    override fun getPictureOfTheDay(callback: Callback<PodEntity>) {
-        service.getPictureOfTheDay(BuildConfig.POD_KEY).enqueue(callback)
+    override fun getPictureOfTheDay(callback: Callback<PodEntity>, date: String) {
+        service.getPictureOfTheDay(date, BuildConfig.POD_KEY).enqueue(callback)
     }
 }

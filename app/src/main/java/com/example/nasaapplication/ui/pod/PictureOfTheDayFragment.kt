@@ -35,7 +35,10 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
         viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onPodLoaded(it) })
 
-        viewModel.onViewCreated()
+        binding.podChipGroup.setOnCheckedChangeListener { _, checkedId ->
+            viewModel.onDayChipChanged(checkedId)
+        }
+        binding.podChipGroup.check(R.id.pod_chip_today)
     }
 
     private fun onPodLoaded(state: LoadPodState) {
@@ -53,7 +56,7 @@ class PictureOfTheDayFragment : Fragment() {
             is LoadPodState.Error -> {
                 Snackbar.make(binding.podRootLayout, getString(state.error), Snackbar.LENGTH_SHORT)
                     .setAction(getString(R.string.snack_bar_action_text)) {
-                        viewModel.onViewCreated()
+                        viewModel.reloadClicked()
                     }
                     .show()
             }

@@ -7,4 +7,7 @@
     <string name="not_image_error">Loaded picture of the day is not a picture today :(</string>
     <string name="snack_bar_action_text">Reload</string>
     <string name="nav_pod_title">Daily photo</string>
+    <string name="pod_chip_today_text">Today</string>
+    <string name="pod_chip_yesterday_text">Yesterday</string>
+    <string name="pod_chip_before_yesterday_text">Before yesterday</string>
 </resources>

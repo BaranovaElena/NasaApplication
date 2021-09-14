@@ -9,6 +9,7 @@ import retrofit2.http.Query
 interface PodRetrofitService {
     @GET(BuildConfig.POD_URL)
     fun getPictureOfTheDay(
+        @Query("date") date: String,
         @Query("api_key") key: String
     ): Call<PodEntity>
 }
