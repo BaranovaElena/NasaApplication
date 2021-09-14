@@ -9,11 +9,10 @@ import com.example.nasaapplication.domain.repo.pod.PodRepoImplRetrofit
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 class PictureOfTheDayViewModel : ViewModel() {
     var loadStateLiveData: MutableLiveData<LoadPodState> = MutableLiveData()
-    val podRepo: PodRepo = PodRepoImplRetrofit()
+    private val podRepo: PodRepo = PodRepoImplRetrofit()
 
     fun onViewCreated() {
         loadStateLiveData.value = LoadPodState.Loading
@@ -26,16 +25,16 @@ class PictureOfTheDayViewModel : ViewModel() {
                         if (pod.media_type == MEDIA_TYPE_IMAGE) {
                             LoadPodState.Success(pod.title, pod.url, pod.explanation)
                         } else {
-                            LoadPodState.Error(Throwable("NOT_IMAGE_ERROR"))
+                            LoadPodState.Error(LoadPodError.NOT_IMAGE_ERROR)
                         }
                     } else {
-                        LoadPodState.Error(Throwable("SERVER_ERROR"))
+                        LoadPodState.Error(LoadPodError.SERVER_ERROR)
                     }
                 )
             }
 
             override fun onFailure(call: Call<PodEntity>, t: Throwable) {
-                loadStateLiveData.postValue(LoadPodState.Error(Exception()))
+                loadStateLiveData.postValue(LoadPodState.Error(LoadPodError.LOAD_ERROR))
             }
         }
 

@@ -2,7 +2,6 @@ package com.example.nasaapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import com.example.nasaapplication.R
 import com.example.nasaapplication.ui.pod.PictureOfTheDayFragment
 

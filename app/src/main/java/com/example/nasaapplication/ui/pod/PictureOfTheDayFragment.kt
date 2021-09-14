@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.PictureOfTheDayFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 
 class PictureOfTheDayFragment : Fragment() {
     private val binding: PictureOfTheDayFragmentBinding by viewBinding(
@@ -41,21 +41,22 @@ class PictureOfTheDayFragment : Fragment() {
     private fun onPodLoaded(state: LoadPodState) {
         when (state) {
             is LoadPodState.Success -> {
-                binding.podTitle.text = state.title
-                binding.podDescription.text = state.description
+                binding.podTitleTextView.text = state.title
+                binding.podDescriptionTextView.text = state.description
 
                 Glide.with(this)
                     .load(state.picture)
                     .centerCrop()
-                    .into(binding.podImageView)
+                    .into(binding.podPictureImageView)
             }
-            is LoadPodState.Loading -> {
-
-            }
+            is LoadPodState.Loading -> {}
             is LoadPodState.Error -> {
-                Toast.makeText(context, state.error.message,Toast.LENGTH_SHORT).show()
+                Snackbar.make(binding.podRootLayout, getString(state.error), Snackbar.LENGTH_SHORT)
+                    .setAction(getString(R.string.snack_bar_action_text)) {
+                        viewModel.onViewCreated()
+                    }
+                    .show()
             }
         }
     }
-
 }
