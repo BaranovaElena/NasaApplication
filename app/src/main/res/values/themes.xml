@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.NasaApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/indigo_500</item>
-        <item name="colorPrimaryVariant">@color/indigo_700</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -16,22 +16,24 @@
     </style>
 
     <style name="Theme.NasaApplication.Indigo" parent="Theme.NasaApplication">
-        <item name="colorPrimary">@color/indigo_300</item>
-        <item name="colorPrimaryVariant">@color/nasa_indigo_primary_dark</item>
-        <item name="colorOnPrimary">@color/nasa_indigo_primary_light</item>
+        <item name="colorPrimary">@color/indigo_500</item>
+        <item name="colorPrimaryVariant">@color/indigo_700</item>
+        <item name="colorOnPrimary">@color/indigo_200</item>
+        <item name="colorOnPrimarySurface">@color/indigo_300</item>
 
-        <item name="colorSecondary">@color/red_300</item>
-        <item name="colorSecondaryVariant">@color/nasa_indigo_secondary_light</item>
-        <item name="colorOnSecondary">@color/nasa_indigo_secondary_dark</item>
+        <item name="colorSecondary">@color/deep_orange_500</item>
+        <item name="colorSecondaryVariant">@color/deep_orange_700</item>
+        <item name="colorOnSecondary">@color/deep_orange_200</item>
     </style>
 
     <style name="Theme.NasaApplication.Red" parent="Theme.NasaApplication">
-        <item name="colorPrimary">@color/red_400</item>
-        <item name="colorPrimaryVariant">@color/nasa_red_primary_dark</item>
-        <item name="colorOnPrimary">@color/nasa_red_primary_light</item>
+        <item name="colorPrimary">@color/red_500</item>
+        <item name="colorPrimaryVariant">@color/red_700</item>
+        <item name="colorOnPrimary">@color/red_200</item>
+        <item name="colorOnPrimarySurface">@color/red_300</item>
 
-        <item name="colorSecondary">@color/green_a700</item>
-        <item name="colorSecondaryVariant">@color/nasa_red_secondary_light</item>
-        <item name="colorOnSecondary">@color/nasa_red_secondary_dark</item>
+        <item name="colorSecondary">@color/green_500</item>
+        <item name="colorSecondaryVariant">@color/green_700</item>
+        <item name="colorOnSecondary">@color/green_200</item>
     </style>
 </resources>

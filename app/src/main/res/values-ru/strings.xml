@@ -19,5 +19,7 @@
 
     <!-- settings fragment -->
     <string name="settings_theme_title_text">Тема приложения</string>
-
+    <string name="theme_default">Стандартная</string>
+    <string name="theme_indigo">Индиго</string>
+    <string name="theme_red">Красная</string>
 </resources>

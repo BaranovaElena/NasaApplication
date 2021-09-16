@@ -12,9 +12,16 @@
     <color name="indigo_300">#FF7986CB</color>
     <color name="indigo_500">#FF3F51B5</color>
     <color name="indigo_700">#FF303F9F</color>
-    <color name="red_300">#FFE57373</color>
-    <color name="red_400">#FFEF5350</color>
-    <color name="green_a700">#FF00C853</color>
+    <color name="red_200">#EF9A9A</color>
+    <color name="red_300">#E57373</color>
+    <color name="red_500">#F44336</color>
+    <color name="red_700">#D32F2F</color>
+    <color name="green_200">#A5D6A7</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="green_700">#388E3C</color>
+    <color name="deep_orange_200">#FFAB91</color>
+    <color name="deep_orange_500">#FF5722</color>
+    <color name="deep_orange_700">#E64A19</color>
 
     <!-- picture of the day fragment -->
     <color name="pod_background">@color/indigo_100</color>
@@ -27,15 +34,4 @@
     <!-- settings fragment -->
     <color name="settings_background">@color/indigo_100</color>
 
-    <!-- theme indigo -->
-    <color name="nasa_indigo_primary_light">#aab6fe</color>
-    <color name="nasa_indigo_primary_dark">#49599a</color>
-    <color name="nasa_indigo_secondary_light">#ffa4a2</color>
-    <color name="nasa_indigo_secondary_dark">#af4448</color>
-
-    <!-- theme red -->
-    <color name="nasa_red_primary_light">#ff867c</color>
-    <color name="nasa_red_primary_dark">#b61827</color>
-    <color name="nasa_red_secondary_light">#5efc82</color>
-    <color name="nasa_red_secondary_dark">#009624</color>
 </resources>

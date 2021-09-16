@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/settings_padding_default"
+    android:background="?attr/colorOnPrimary"
     tools:context=".ui.settings.SettingsFragment">
 
     <com.google.android.material.textview.MaterialTextView
@@ -15,49 +16,56 @@
         android:textSize="@dimen/settings_theme_title_text_size" />
 
     <RadioGroup
+        android:id="@+id/settings_themes_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="?attr/colorOnPrimary">
+        android:orientation="horizontal" >
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/settings_themes_radio_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="default"/>
+            android:text="@string/theme_default"/>
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/settings_themes_radio_indigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="indigo" />
+            android:text="@string/theme_indigo" />
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/settings_themes_radio_red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="red"/>
+            android:text="@string/theme_red"/>
     </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="?attr/colorOnPrimary">
+        android:layout_height="@dimen/settings_theme_image_layout_height"
+        android:gravity="top">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_picture_of_the_day" />
+            app:srcCompat="@drawable/theme_default"
+            android:scaleType="fitStart"
+            android:layout_margin="@dimen/settings_theme_image_margin"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_picture_of_the_day" />
+            app:srcCompat="@drawable/theme_indigo"
+            android:scaleType="fitStart"
+            android:layout_margin="@dimen/settings_theme_image_margin"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_picture_of_the_day" />
+            app:srcCompat="@drawable/theme_red"
+            android:scaleType="fitStart"
+            android:layout_margin="@dimen/settings_theme_image_margin" />
     </LinearLayout>
 
 </LinearLayout>
