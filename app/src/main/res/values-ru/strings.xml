@@ -2,13 +2,22 @@
 <resources>
     <string name="app_name">Приложение Nasa</string>
 
-    <!-- picture of the day fragment -->
+    <!-- picture of the day errors-->
     <string name="load_error">Ошибка загрузки. Проверьте интернет-соединение и перезагрузите</string>
     <string name="server_error">Ошибка сервера. Пожалйста повторите попытку позже</string>
     <string name="not_image_error">Картинка дня сегодня не картинка :(</string>
     <string name="snack_bar_action_text">Перезагрузить</string>
+
+    <!-- bottom navigation -->
     <string name="nav_pod_title">Фото дня</string>
+    <string name="nav_settings_title">Настройки</string>
+
+    <!-- picture of the day fragment -->
     <string name="pod_chip_today_text">Сегодня</string>
     <string name="pod_chip_yesterday_text">Вчера</string>
     <string name="pod_chip_before_yesterday_text">Позавчера</string>
+
+    <!-- settings fragment -->
+    <string name="settings_theme_title_text">Тема приложения</string>
+
 </resources>
