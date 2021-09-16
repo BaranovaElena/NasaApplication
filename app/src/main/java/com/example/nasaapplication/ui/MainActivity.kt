@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.nasaapplication.R
+import com.example.nasaapplication.ui.settings.SettingsFragment
 import com.example.nasaapplication.databinding.ActivityMainBinding
 import com.example.nasaapplication.ui.pod.PictureOfTheDayFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_pod -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, PictureOfTheDayFragment.newInstance())
+                    .commitNow()
+            }
+            R.id.nav_settings -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, SettingsFragment.newInstance())
                     .commitNow()
             }
         }
