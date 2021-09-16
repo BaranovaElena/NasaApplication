@@ -7,4 +7,6 @@
 
     <dimen name="settings_padding_default">8dp</dimen>
     <dimen name="settings_theme_title_text_size">22sp</dimen>
+    <dimen name="settings_theme_image_margin">6dp</dimen>
+    <dimen name="settings_theme_image_layout_height">250dp</dimen>
 </resources>

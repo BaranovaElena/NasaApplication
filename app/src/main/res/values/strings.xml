@@ -18,5 +18,7 @@
 
     <!-- settings fragment -->
     <string name="settings_theme_title_text">Application theme</string>
-
+    <string name="theme_default">Default</string>
+    <string name="theme_indigo">Indigo</string>
+    <string name="theme_red">Red</string>
 </resources>
