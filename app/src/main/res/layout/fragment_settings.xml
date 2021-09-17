@@ -27,12 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/theme_default"/>
+
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/settings_themes_radio_indigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/theme_indigo" />
+
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/settings_themes_radio_red"
             android:layout_width="wrap_content"
@@ -40,32 +42,28 @@
             android:layout_weight="1"
             android:text="@string/theme_red"/>
     </RadioGroup>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_theme_image_layout_height"
-        android:gravity="top">
+        android:layout_height="@dimen/settings_theme_image_layout_height" >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             app:srcCompat="@drawable/theme_default"
-            android:scaleType="fitStart"
-            android:layout_margin="@dimen/settings_theme_image_margin"/>
+            style="@style/theme_images_style" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             app:srcCompat="@drawable/theme_indigo"
-            android:scaleType="fitStart"
-            android:layout_margin="@dimen/settings_theme_image_margin"/>
+            style="@style/theme_images_style" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             app:srcCompat="@drawable/theme_red"
-            android:scaleType="fitStart"
-            android:layout_margin="@dimen/settings_theme_image_margin" />
+            style="@style/theme_images_style" />
     </LinearLayout>
 
 </LinearLayout>
