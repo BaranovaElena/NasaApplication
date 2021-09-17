@@ -45,8 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/pod_title_text_size"
-        android:textAlignment="center"
-        android:textColor="@color/pod_text_color" />
+        android:textAlignment="center" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -71,8 +70,7 @@
                 android:id="@+id/pod_description_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/pod_description_text_size"
-                android:textColor="@color/pod_text_color" />
+                android:textSize="@dimen/pod_description_text_size" />
         </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

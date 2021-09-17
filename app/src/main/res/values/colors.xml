@@ -12,16 +12,21 @@
     <color name="indigo_300">#FF7986CB</color>
     <color name="indigo_500">#FF3F51B5</color>
     <color name="indigo_700">#FF303F9F</color>
+    <color name="indigo_800">#FF283593</color>
     <color name="red_200">#EF9A9A</color>
     <color name="red_300">#E57373</color>
     <color name="red_500">#F44336</color>
     <color name="red_700">#D32F2F</color>
+    <color name="red_800">#C62828</color>
     <color name="green_200">#A5D6A7</color>
+    <color name="green_300">#81C784</color>
     <color name="green_500">#4CAF50</color>
     <color name="green_700">#388E3C</color>
     <color name="deep_orange_200">#FFAB91</color>
+    <color name="deep_orange_300">#FF8A65</color>
     <color name="deep_orange_500">#FF5722</color>
     <color name="deep_orange_700">#E64A19</color>
+    <color name="gray_800">#424242</color>
 
     <!-- picture of the day fragment -->
     <color name="pod_background">@color/indigo_100</color>
