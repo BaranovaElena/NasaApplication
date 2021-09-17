@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/settings_theme_title_text"
+        android:fontFamily="@font/christmas_font"
+        android:textAlignment="center"
         android:textSize="@dimen/settings_theme_title_text_size" />
 
     <RadioGroup
