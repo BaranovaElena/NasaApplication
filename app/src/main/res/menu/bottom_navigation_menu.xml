@@ -6,8 +6,13 @@
         android:icon="@drawable/ic_picture_of_the_day"
         android:title="@string/nav_pod_title" />
     <item
-        android:id="@+id/nav_settings"
+        android:id="@+id/nav_weather"
         android:enabled="true"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/nav_settings_title" />
+        android:icon="@drawable/ic_weather"
+        android:title="@string/nav_weather_title" />
+    <item
+        android:id="@+id/nav_planets"
+        android:enabled="true"
+        android:icon="@drawable/ic_planet"
+        android:title="@string/nav_planets_title" />
 </menu>

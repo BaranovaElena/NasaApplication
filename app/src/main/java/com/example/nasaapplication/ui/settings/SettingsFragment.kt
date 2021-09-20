@@ -58,6 +58,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setNewTheme(checkedId: Int) {
+        (requireActivity() as Controller).removeSettingsFragmentFromBackStack()
         when (checkedId) {
             R.id.settings_themes_radio_default ->
                 (requireActivity() as Controller).saveTheme(Themes.DEFAULT.ordinal)
@@ -70,5 +71,6 @@ class SettingsFragment : Fragment() {
 
     interface Controller {
         fun saveTheme(theme: Int)
+        fun removeSettingsFragmentFromBackStack()
     }
 }

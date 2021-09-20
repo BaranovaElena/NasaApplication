@@ -8,9 +8,11 @@
     <string name="not_image_error">Картинка дня сегодня не картинка :(</string>
     <string name="snack_bar_action_text">Перезагрузить</string>
 
-    <!-- bottom navigation -->
+    <!-- navigation -->
     <string name="nav_pod_title">Фото дня</string>
     <string name="nav_settings_title">Настройки</string>
+    <string name="nav_weather_title">Погода</string>
+    <string name="nav_planets_title">Планеты</string>
 
     <!-- picture of the day fragment -->
     <string name="pod_chip_today_text">Сегодня</string>
@@ -22,4 +24,8 @@
     <string name="theme_default">Стандартная</string>
     <string name="theme_indigo">Индиго</string>
     <string name="theme_red">Красная</string>
+
+    <!-- weather fragment -->
+    <string name="weather_tab_space_title">В космосе</string>
+    <string name="weather_tab_mars_title">На Марсе</string>
 </resources>
