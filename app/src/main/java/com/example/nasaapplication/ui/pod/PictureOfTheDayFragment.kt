@@ -22,7 +22,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
 
     private lateinit var viewModel: PictureOfTheDayViewModel
 
-    val app = requireActivity().application as NasaApplication
+    private val app by lazy { requireActivity().application as NasaApplication }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

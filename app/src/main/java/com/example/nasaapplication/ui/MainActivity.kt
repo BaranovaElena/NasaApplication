@@ -1,6 +1,7 @@
 package com.example.nasaapplication.ui
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,18 +15,20 @@ import com.example.nasaapplication.ui.pod.PictureOfTheDayFragment
 import com.example.nasaapplication.ui.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+private const val SHARED_PREFERENCES_NAME = "settings"
+
 class MainActivity : AppCompatActivity(R.layout.activity_main), SettingsFragment.Controller {
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
     private var bottomNavigationView: BottomNavigationView? = null
 
-    private val sharedPreferencesName = "settings"
+    private lateinit var sharedPreferences: SharedPreferences
     private val sharedValueNameTheme = "Theme"
     private var currentTheme = Themes.DEFAULT.ordinal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sharedPreferences = getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
         if (sharedPreferences.contains(sharedValueNameTheme)) {
             currentTheme = sharedPreferences.getInt(sharedValueNameTheme, Themes.DEFAULT.ordinal)
             setAppTheme(currentTheme)
@@ -98,10 +101,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), SettingsFragment
     }
 
     private fun saveThemeInSharedPreferences(theme: Int) {
-        val sharedPreferences = getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putInt(sharedValueNameTheme, theme)
-        editor.apply()
+        sharedPreferences.edit().apply {
+            putInt(sharedValueNameTheme, theme)
+            apply()
+        }
     }
 }
 

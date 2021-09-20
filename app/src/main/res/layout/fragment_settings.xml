@@ -53,19 +53,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/theme_default_day_night"
-            style="@style/theme_images_style" />
+            style="@style/themeImagesStyle" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/theme_indigo_day_night"
-            style="@style/theme_images_style" />
+            style="@style/themeImagesStyle" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/theme_red_day_night"
-            style="@style/theme_images_style" />
+            style="@style/themeImagesStyle" />
     </LinearLayout>
 
 </LinearLayout>
