@@ -4,6 +4,9 @@ import android.app.Application
 import com.example.nasaapplication.domain.repo.pod.PodRepo
 import com.example.nasaapplication.domain.repo.pod.PodRepoImplRetrofit
 import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
+import com.example.nasaapplication.domain.repo.spaceweather.SpaceWeatherRepo
+import com.example.nasaapplication.domain.repo.spaceweather.SpaceWeatherRepoImplRetrofit
+import com.example.nasaapplication.domain.repo.spaceweather.SpaceWeatherRetrofitService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,10 +17,15 @@ class NasaApplication : Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+    val apiKey = BuildConfig.POD_KEY
 
-    val service: PodRetrofitService by lazy {
+    val podService: PodRetrofitService by lazy {
         retrofit.create(PodRetrofitService::class.java)
     }
-    val apiKey = BuildConfig.POD_KEY
     val podRepo: PodRepo = PodRepoImplRetrofit()
+
+    val spaceWeatherService: SpaceWeatherRetrofitService by lazy {
+        retrofit.create(SpaceWeatherRetrofitService::class.java)
+    }
+    val spaceWeatherRepo: SpaceWeatherRepo = SpaceWeatherRepoImplRetrofit()
 }

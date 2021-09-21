@@ -28,4 +28,5 @@
     <!-- weather fragment -->
     <string name="weather_tab_space_title">В космосе</string>
     <string name="weather_tab_mars_title">На Марсе</string>
+    <string name="space_weather_title_text">Уведомления о космической погоде</string>
 </resources>

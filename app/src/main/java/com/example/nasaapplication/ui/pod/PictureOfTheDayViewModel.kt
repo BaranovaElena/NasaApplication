@@ -3,9 +3,8 @@ package com.example.nasaapplication.ui.pod
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nasaapplication.NasaApplication
-import com.example.nasaapplication.domain.model.pod.MEDIA_TYPE_IMAGE
-import com.example.nasaapplication.domain.model.pod.PodEntity
+import com.example.nasaapplication.domain.model.MEDIA_TYPE_IMAGE
+import com.example.nasaapplication.domain.model.PodEntity
 import com.example.nasaapplication.domain.repo.pod.PodRepo
 import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
 import retrofit2.Call

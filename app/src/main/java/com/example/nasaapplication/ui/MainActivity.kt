@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val SHARED_PREFERENCES_NAME = "settings"
 
-class MainActivity : AppCompatActivity(R.layout.activity_main), SettingsFragment.Controller {
+class MainActivity : AppCompatActivity(), SettingsFragment.Controller {
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
     private var bottomNavigationView: BottomNavigationView? = null
 
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), SettingsFragment
             currentTheme = sharedPreferences.getInt(sharedValueNameTheme, Themes.DEFAULT.ordinal)
             setAppTheme(currentTheme)
         }
+        setContentView(R.layout.activity_main)
 
         bottomNavigationView = binding.bottomNavigationView
         bottomNavigationView?.setOnItemSelectedListener { item -> setBottomNavListener(item) }

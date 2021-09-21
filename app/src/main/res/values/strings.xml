@@ -27,4 +27,5 @@
     <!-- weather fragment -->
     <string name="weather_tab_space_title">In space</string>
     <string name="weather_tab_mars_title">At Mars</string>
+    <string name="space_weather_title_text">Space Weather Notifications</string>
 </resources>

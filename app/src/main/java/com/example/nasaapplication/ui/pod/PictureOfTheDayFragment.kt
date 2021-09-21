@@ -27,7 +27,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
-        viewModel.initViewModel(app.podRepo, app.service, app.apiKey)
+        viewModel.initViewModel(app.podRepo, app.podService, app.apiKey)
         viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onPodLoaded(it) })
 
         binding.podChipGroup.setOnCheckedChangeListener { _, checkedId ->

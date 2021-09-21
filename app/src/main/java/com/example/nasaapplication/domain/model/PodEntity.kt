@@ -1,4 +1,4 @@
-package com.example.nasaapplication.domain.model.pod
+package com.example.nasaapplication.domain.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

@@ -1,6 +1,6 @@
 package com.example.nasaapplication.domain.repo.pod
 
-import com.example.nasaapplication.domain.model.pod.PodEntity
+import com.example.nasaapplication.domain.model.PodEntity
 import retrofit2.Callback
 
 interface PodRepo {
