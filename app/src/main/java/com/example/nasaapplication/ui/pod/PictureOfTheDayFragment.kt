@@ -27,10 +27,11 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+        viewModel.initViewModel(app.podRepo, app.service, app.apiKey)
         viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onPodLoaded(it) })
 
         binding.podChipGroup.setOnCheckedChangeListener { _, checkedId ->
-            viewModel.onDayChipChanged(app,
+            viewModel.onDayChipChanged(
                 when (checkedId) {
                     R.id.pod_chip_today -> Days.TODAY
                     R.id.pod_chip_yesterday -> Days.YESTERDAY
@@ -70,7 +71,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     private fun showSnackbar(error: String) {
         Snackbar.make(binding.podRootLayout, error, Snackbar.LENGTH_SHORT)
             .setAction(getString(R.string.snack_bar_action_text)) {
-                viewModel.reloadClicked(app)
+                viewModel.reloadClicked()
             }
             .show()
     }

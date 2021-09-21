@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.domain.model.pod.MEDIA_TYPE_IMAGE
 import com.example.nasaapplication.domain.model.pod.PodEntity
+import com.example.nasaapplication.domain.repo.pod.PodRepo
+import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,6 +19,9 @@ class PictureOfTheDayViewModel : ViewModel() {
     var loadStateLiveData: LiveData<LoadPodState> = loadStateLiveDataMutable
 
     private var formattedDate = ""
+    private lateinit var repo: PodRepo
+    private lateinit var service: PodRetrofitService
+    private lateinit var apiKey: String
 
     private val retrofitCallback = object : Callback<PodEntity> {
         override fun onResponse(call: Call<PodEntity>, response: Response<PodEntity>) {
@@ -39,7 +44,13 @@ class PictureOfTheDayViewModel : ViewModel() {
         }
     }
 
-    fun onDayChipChanged(app: NasaApplication, day: Int) {
+    fun initViewModel(repo: PodRepo, service: PodRetrofitService, apiKey: String){
+        this.repo = repo
+        this.service = service
+        this.apiKey = apiKey
+    }
+
+    fun onDayChipChanged(day: Int) {
         loadStateLiveDataMutable.value = LoadPodState.Loading
 
         val date = Calendar.getInstance().apply {
@@ -51,19 +62,11 @@ class PictureOfTheDayViewModel : ViewModel() {
         }.time
         formattedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date)
 
-        app.podRepo.getPictureOfTheDay(
-            retrofitCallback,
-            app.service,
-            formattedDate,
-            app.apiKey)
+        repo.getPictureOfTheDay(retrofitCallback, service, formattedDate, apiKey)
     }
 
-    fun reloadClicked(app: NasaApplication) {
+    fun reloadClicked() {
         loadStateLiveDataMutable.value = LoadPodState.Loading
-        app.podRepo.getPictureOfTheDay(
-            retrofitCallback,
-            app.service,
-            formattedDate,
-            app.apiKey)
+        repo.getPictureOfTheDay(retrofitCallback, service, formattedDate, apiKey)
     }
 }
