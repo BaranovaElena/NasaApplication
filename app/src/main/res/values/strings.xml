@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">NasaApplication</string>
 
-    <!-- picture of the day fragment -->
+    <!-- picture of the day errors -->
     <string name="load_error">Load Error. Check the internet connection and reload</string>
     <string name="server_error">Server Error. Please try again later</string>
     <string name="not_image_error">Loaded picture of the day is not a picture today :(</string>
     <string name="snack_bar_action_text">Reload</string>
+
+    <!-- bottom navigation -->
     <string name="nav_pod_title">Daily photo</string>
+    <string name="nav_settings_title">Settings</string>
+
+    <!-- picture of the day fragment -->
     <string name="pod_chip_today_text">Today</string>
     <string name="pod_chip_yesterday_text">Yesterday</string>
     <string name="pod_chip_before_yesterday_text">Before yesterday</string>
+
+    <!-- settings fragment -->
+    <string name="settings_theme_title_text">Application theme</string>
+    <string name="theme_default">Default</string>
+    <string name="theme_indigo">Indigo</string>
+    <string name="theme_red">Red</string>
 </resources>
