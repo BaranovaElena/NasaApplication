@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="indigo_100">#FFC5CAE9</color>
+    <color name="indigo_200">#FF9FA8DA</color>
+    <color name="indigo_500">#FF3F51B5</color>
+    <color name="indigo_700">#FF303F9F</color>
+
+    <color name="pod_background">@color/indigo_100</color>
+    <color name="pod_bottom_sheet_background">@color/indigo_200</color>
+    <color name="pod_text_color">@color/black</color>
+
+    <color name="bottom_nav_background">@color/indigo_100</color>
 </resources>

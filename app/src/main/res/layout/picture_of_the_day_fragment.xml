@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pod_root_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pod_background"
+    android:orientation="vertical"
+    android:padding="@dimen/pod_padding_default"
+    tools:context=".ui.pod.PictureOfTheDayFragment">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/pod_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:selectionRequired="true"
+        app:singleLine="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/pod_chip_before_yesterday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:text="@string/pod_chip_before_yesterday_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/pod_chip_yesterday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:text="@string/pod_chip_yesterday_text" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/pod_chip_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:text="@string/pod_chip_today_text" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pod_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/pod_title_text_size"
+        android:textAlignment="center"
+        android:textColor="@color/pod_text_color" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pod_picture_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="center"/>
+
+        <FrameLayout
+            android:id="@+id/bottom_sheet_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pod_bottom_sheet_background"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="@dimen/pod_bottom_sheet_peek_height"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <TextView
+                android:id="@+id/pod_description_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/pod_description_text_size"
+                android:textColor="@color/pod_text_color" />
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>
