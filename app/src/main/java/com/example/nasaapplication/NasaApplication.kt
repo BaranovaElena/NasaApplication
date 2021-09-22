@@ -1,6 +1,9 @@
 package com.example.nasaapplication
 
 import android.app.Application
+import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRetrofitService
+import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRepo
+import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRepoImplRetrofit
 import com.example.nasaapplication.domain.repo.pod.PodRepo
 import com.example.nasaapplication.domain.repo.pod.PodRepoImplRetrofit
 import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
@@ -28,4 +31,9 @@ class NasaApplication : Application() {
         retrofit.create(SpaceWeatherRetrofitService::class.java)
     }
     val spaceWeatherRepo: SpaceWeatherRepo = SpaceWeatherRepoImplRetrofit()
+
+    val earthPhotoService: EarthPhotoRetrofitService by lazy {
+        retrofit.create(EarthPhotoRetrofitService::class.java)
+    }
+    val earthPhotoRepo: EarthPhotoRepo = EarthPhotoRepoImplRetrofit()
 }

@@ -28,4 +28,11 @@
     <string name="weather_tab_space_title">In space</string>
     <string name="weather_tab_mars_title">At Mars</string>
     <string name="space_weather_title_text">Space Weather Notifications</string>
+    <string name="mars_weather_title_text">The weather on Mars has not been updated for a long time</string>
+
+    <!-- planets fragment -->
+    <string name="planets_tab_earth_title">Earth</string>
+    <string name="planets_tab_mars_title">Mars</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

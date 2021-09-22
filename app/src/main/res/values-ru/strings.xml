@@ -29,4 +29,9 @@
     <string name="weather_tab_space_title">В космосе</string>
     <string name="weather_tab_mars_title">На Марсе</string>
     <string name="space_weather_title_text">Уведомления о космической погоде</string>
+    <string name="mars_weather_title_text">The weather on Mars has not been updated for a long time</string>
+
+    <!-- planets fragment -->
+    <string name="planets_tab_earth_title">Земля</string>
+    <string name="planets_tab_mars_title">Марс</string>
 </resources>

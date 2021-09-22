@@ -1,4 +1,4 @@
-package com.example.nasaapplication.ui.weather
+package com.example.nasaapplication.ui
 
 import androidx.fragment.app.Fragment
 

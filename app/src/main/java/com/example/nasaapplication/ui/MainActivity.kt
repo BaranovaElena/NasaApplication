@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.nasaapplication.PlanetsFragment
+import com.example.nasaapplication.ui.planets.PlanetsFragment
 import com.example.nasaapplication.R
 import com.example.nasaapplication.ui.weather.WeatherFragment
 import com.example.nasaapplication.databinding.ActivityMainBinding

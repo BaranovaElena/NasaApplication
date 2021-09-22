@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnPrimary"
-    tools:context=".ui.weather.mars.MarsWeatherFragment">
+    tools:context=".ui.planets.mars.PlanetMarsFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAlignment="center"
-        android:text="@string/mars_weather_title_text"
-        android:textSize="@dimen/mars_weather_title_text_size"
-        android:textStyle="bold"/>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
