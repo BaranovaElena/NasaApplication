@@ -7,6 +7,7 @@ import com.example.nasaapplication.domain.model.MarsPhotoEntity
 import com.example.nasaapplication.domain.model.MarsResponseEntity
 import com.example.nasaapplication.domain.repo.planetmars.MarsPhotoRepo
 import com.example.nasaapplication.domain.repo.planetmars.MarsPhotoRetrofitService
+import com.example.nasaapplication.ui.LoadError
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,13 +36,13 @@ class PlanetMarsViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     MarsPictureLoadState.Success(body.sol, body.date, body.image)
                 } else {
-                    MarsPictureLoadState.Error(MarsPictureLoadError.SERVER_ERROR)
+                    MarsPictureLoadState.Error(LoadError.SERVER_ERROR)
                 }
             )
         }
 
         override fun onFailure(call: Call<MarsResponseEntity>, t: Throwable) {
-            loadStateLiveDataMutable.postValue(MarsPictureLoadState.Error(MarsPictureLoadError.LOAD_ERROR))
+            loadStateLiveDataMutable.postValue(MarsPictureLoadState.Error(LoadError.LOAD_ERROR))
         }
     }
 

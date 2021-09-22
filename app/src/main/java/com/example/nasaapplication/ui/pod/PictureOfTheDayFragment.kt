@@ -9,7 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.PictureOfTheDayFragmentBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.nasaapplication.ui.LoadPodError
+import com.example.nasaapplication.ui.showSnackBar
 
 class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     private val binding: PictureOfTheDayFragmentBinding by viewBinding(
@@ -57,23 +58,17 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
             is LoadPodState.Loading -> {
             }
             is LoadPodState.Error -> {
-                showSnackbar(
+                binding.podRootLayout.showSnackBar(
                     when (state.error) {
                         LoadPodError.LOAD_ERROR -> getString(R.string.load_error)
                         LoadPodError.SERVER_ERROR -> getString(R.string.server_error)
                         LoadPodError.NOT_IMAGE_ERROR -> getString(R.string.not_image_error)
-                    }
+                    },
+                    getString(R.string.snack_bar_action_text),
+                    { viewModel.reloadClicked() }
                 )
             }
         }
-    }
-
-    private fun showSnackbar(error: String) {
-        Snackbar.make(binding.podRootLayout, error, Snackbar.LENGTH_SHORT)
-            .setAction(getString(R.string.snack_bar_action_text)) {
-                viewModel.reloadClicked()
-            }
-            .show()
     }
 }
 

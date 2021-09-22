@@ -3,15 +3,17 @@ package com.example.nasaapplication.ui.pod
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nasaapplication.domain.model.MEDIA_TYPE_IMAGE
 import com.example.nasaapplication.domain.model.PodEntity
 import com.example.nasaapplication.domain.repo.pod.PodRepo
 import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
+import com.example.nasaapplication.ui.LoadPodError
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+
+private const val MEDIA_TYPE_IMAGE = "image"
 
 class PictureOfTheDayViewModel : ViewModel() {
     private var loadStateLiveDataMutable: MutableLiveData<LoadPodState> = MutableLiveData()

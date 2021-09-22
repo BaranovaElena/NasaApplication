@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.nasaapplication.domain.model.EarthPhotoEntity
 import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRepo
 import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRetrofitService
+import com.example.nasaapplication.ui.LoadError
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,13 +37,13 @@ class PlanetEarthViewModel : ViewModel() {
                         getImagePath(body.image, body.date)
                     )
                 } else {
-                    EarthPictureLoadState.Error(EarthPictureLoadError.SERVER_ERROR)
+                    EarthPictureLoadState.Error(LoadError.SERVER_ERROR)
                 }
             )
         }
 
         override fun onFailure(call: Call<List<EarthPhotoEntity>>, t: Throwable) {
-            loadStateLiveDataMutable.postValue(EarthPictureLoadState.Error(EarthPictureLoadError.LOAD_ERROR))
+            loadStateLiveDataMutable.postValue(EarthPictureLoadState.Error(LoadError.LOAD_ERROR))
         }
     }
 

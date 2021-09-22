@@ -9,7 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.FragmentPlanetMarsBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.nasaapplication.ui.LoadError
+import com.example.nasaapplication.ui.showSnackBar
 
 class PlanetMarsFragment : Fragment(R.layout.fragment_planet_mars) {
     private val binding: FragmentPlanetMarsBinding by viewBinding(
@@ -44,21 +45,15 @@ class PlanetMarsFragment : Fragment(R.layout.fragment_planet_mars) {
             is MarsPictureLoadState.Loading -> {
             }
             is MarsPictureLoadState.Error -> {
-                showSnackbar(
+                binding.planetMarsRootLayout.showSnackBar(
                     when (state.error) {
-                        MarsPictureLoadError.LOAD_ERROR -> getString(R.string.load_error)
-                        MarsPictureLoadError.SERVER_ERROR -> getString(R.string.server_error)
-                    }
+                        LoadError.LOAD_ERROR -> getString(R.string.load_error)
+                        LoadError.SERVER_ERROR -> getString(R.string.server_error)
+                    },
+                    getString(R.string.snack_bar_action_text),
+                    { viewModel.reloadClicked() }
                 )
             }
         }
-    }
-
-    private fun showSnackbar(error: String) {
-        Snackbar.make(binding.planetMarsRootLayout, error, Snackbar.LENGTH_SHORT)
-            .setAction(getString(R.string.snack_bar_action_text)) {
-                viewModel.reloadClicked()
-            }
-            .show()
     }
 }

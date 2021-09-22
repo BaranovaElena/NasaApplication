@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.nasaapplication.domain.model.SpaceWeatherEntity
 import com.example.nasaapplication.domain.repo.spaceweather.SpaceWeatherRepo
 import com.example.nasaapplication.domain.repo.spaceweather.SpaceWeatherRetrofitService
+import com.example.nasaapplication.ui.LoadError
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,13 +34,13 @@ class SpaceWeatherViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     SpaceWeatherLoadState.Success(body.messageType, body.messageIssueTime, body.messageBody)
                 } else {
-                    SpaceWeatherLoadState.Error(SpaceWeatherLoadError.SERVER_ERROR)
+                    SpaceWeatherLoadState.Error(LoadError.SERVER_ERROR)
                 }
             )
         }
 
         override fun onFailure(call: Call<List<SpaceWeatherEntity>>, t: Throwable) {
-            loadStateLiveDataMutable.postValue(SpaceWeatherLoadState.Error(SpaceWeatherLoadError.LOAD_ERROR))
+            loadStateLiveDataMutable.postValue(SpaceWeatherLoadState.Error(LoadError.LOAD_ERROR))
         }
     }
 

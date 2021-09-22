@@ -8,7 +8,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.FragmentSpaceWeatherBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.nasaapplication.ui.LoadError
+import com.example.nasaapplication.ui.showSnackBar
 
 class SpaceWeatherFragment : Fragment(R.layout.fragment_space_weather) {
     private val binding: FragmentSpaceWeatherBinding by viewBinding(
@@ -40,21 +41,15 @@ class SpaceWeatherFragment : Fragment(R.layout.fragment_space_weather) {
             is SpaceWeatherLoadState.Loading -> {
             }
             is SpaceWeatherLoadState.Error -> {
-                showSnackbar(
+                binding.spaceWeatherRootLayout.showSnackBar(
                     when (state.error) {
-                        SpaceWeatherLoadError.LOAD_ERROR -> getString(R.string.load_error)
-                        SpaceWeatherLoadError.SERVER_ERROR -> getString(R.string.server_error)
-                    }
+                        LoadError.LOAD_ERROR -> getString(R.string.load_error)
+                        LoadError.SERVER_ERROR -> getString(R.string.server_error)
+                    },
+                    getString(R.string.snack_bar_action_text),
+                    { viewModel.reloadClicked() }
                 )
             }
         }
-    }
-
-    private fun showSnackbar(error: String) {
-        Snackbar.make(binding.spaceWeatherRootLayout, error, Snackbar.LENGTH_SHORT)
-            .setAction(getString(R.string.snack_bar_action_text)) {
-                viewModel.reloadClicked()
-            }
-            .show()
     }
 }

@@ -9,7 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.FragmentPlanetEarthBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.nasaapplication.ui.LoadError
+import com.example.nasaapplication.ui.showSnackBar
 
 class PlanetEarthFragment : Fragment(R.layout.fragment_planet_earth) {
     private val binding: FragmentPlanetEarthBinding by viewBinding(
@@ -44,21 +45,15 @@ class PlanetEarthFragment : Fragment(R.layout.fragment_planet_earth) {
             is EarthPictureLoadState.Loading -> {
             }
             is EarthPictureLoadState.Error -> {
-                showSnackbar(
+                binding.earthPhotoRootLayout.showSnackBar(
                     when (state.error) {
-                        EarthPictureLoadError.LOAD_ERROR -> getString(R.string.load_error)
-                        EarthPictureLoadError.SERVER_ERROR -> getString(R.string.server_error)
-                    }
+                        LoadError.LOAD_ERROR -> getString(R.string.load_error)
+                        LoadError.SERVER_ERROR -> getString(R.string.server_error)
+                    },
+                    getString(R.string.snack_bar_action_text),
+                    { viewModel.reloadClicked() }
                 )
             }
         }
-    }
-
-    private fun showSnackbar(error: String) {
-        Snackbar.make(binding.earthPhotoRootLayout, error, Snackbar.LENGTH_SHORT)
-            .setAction(getString(R.string.snack_bar_action_text)) {
-                viewModel.reloadClicked()
-            }
-            .show()
     }
 }
