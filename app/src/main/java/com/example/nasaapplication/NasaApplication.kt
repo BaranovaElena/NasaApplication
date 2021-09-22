@@ -4,6 +4,9 @@ import android.app.Application
 import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRetrofitService
 import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRepo
 import com.example.nasaapplication.domain.repo.planetearth.EarthPhotoRepoImplRetrofit
+import com.example.nasaapplication.domain.repo.planetmars.MarsPhotoRepo
+import com.example.nasaapplication.domain.repo.planetmars.MarsPhotoRepoImplRetrofit
+import com.example.nasaapplication.domain.repo.planetmars.MarsPhotoRetrofitService
 import com.example.nasaapplication.domain.repo.pod.PodRepo
 import com.example.nasaapplication.domain.repo.pod.PodRepoImplRetrofit
 import com.example.nasaapplication.domain.repo.pod.PodRetrofitService
@@ -36,4 +39,9 @@ class NasaApplication : Application() {
         retrofit.create(EarthPhotoRetrofitService::class.java)
     }
     val earthPhotoRepo: EarthPhotoRepo = EarthPhotoRepoImplRetrofit()
+
+    val marsPhotoService: MarsPhotoRetrofitService by lazy {
+        retrofit.create(MarsPhotoRetrofitService::class.java)
+    }
+    val marsPhotoRepo: MarsPhotoRepo = MarsPhotoRepoImplRetrofit()
 }

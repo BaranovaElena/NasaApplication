@@ -26,12 +26,12 @@ class PlanetEarthFragment : Fragment(R.layout.fragment_planet_earth) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PlanetEarthViewModel::class.java)
         viewModel.initViewModel(app.earthPhotoRepo, app.earthPhotoService, app.apiKey)
-        viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onWeatherLoaded(it) })
+        viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onDataLoaded(it) })
 
         viewModel.onViewCreated()
     }
 
-    private fun onWeatherLoaded(state: EarthPictureLoadState) {
+    private fun onDataLoaded(state: EarthPictureLoadState) {
         when (state) {
             is EarthPictureLoadState.Success -> {
                 binding.earthPhotoCaption.text = state.caption

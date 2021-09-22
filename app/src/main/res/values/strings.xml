@@ -33,6 +33,6 @@
     <!-- planets fragment -->
     <string name="planets_tab_earth_title">Earth</string>
     <string name="planets_tab_mars_title">Mars</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="planet_mars_sol_title">Sol (Martian day):</string>
+    <string name="planet_mars_day_title">Date (Earth date):</string>
 </resources>
