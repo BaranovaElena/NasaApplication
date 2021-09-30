@@ -19,4 +19,8 @@
     <dimen name="mars_photo_times_title_text_size">16sp</dimen>
     <dimen name="mars_photo_times_value_text_size">24sp</dimen>
     <dimen name="mars_padding_default">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="planets_app_bar_height">330dp</dimen>
 </resources>

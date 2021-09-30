@@ -37,4 +37,13 @@
         <item name="colorSecondaryVariant">@color/green_700</item>
         <item name="colorOnSecondary">@color/green_200</item>
     </style>
+
+    <style name="Theme.NasaApplication.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.NasaApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.NasaApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

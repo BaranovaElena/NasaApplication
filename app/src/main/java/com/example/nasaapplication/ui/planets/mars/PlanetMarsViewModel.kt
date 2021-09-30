@@ -30,8 +30,12 @@ class PlanetMarsViewModel : ViewModel() {
             call: Call<MarsResponseEntity>,
             response: Response<MarsResponseEntity>
         ) {
-            val body: MarsPhotoEntity =
-                response.body()?.photos?.get(0) ?: MarsPhotoEntity(EMPTY_MESSAGE)
+            var body = MarsPhotoEntity(EMPTY_MESSAGE)
+            response.body()?.photos?.let {
+                if (it.isNotEmpty()) {
+                    body = it[0]
+                }
+            }
             loadStateLiveDataMutable.postValue(
                 if (response.isSuccessful) {
                     MarsPictureLoadState.Success(body.sol, body.date, body.image)
