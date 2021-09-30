@@ -3,16 +3,16 @@ package com.example.nasaapplication.ui.pod
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
+import com.example.nasaapplication.NasaApplication
 import com.example.nasaapplication.R
 import com.example.nasaapplication.databinding.PictureOfTheDayFragmentBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.nasaapplication.ui.LoadPodError
+import com.example.nasaapplication.ui.showSnackBar
 
-class PictureOfTheDayFragment : Fragment() {
+class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     private val binding: PictureOfTheDayFragmentBinding by viewBinding(
         PictureOfTheDayFragmentBinding::bind
     )
@@ -23,20 +23,23 @@ class PictureOfTheDayFragment : Fragment() {
 
     private lateinit var viewModel: PictureOfTheDayViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.picture_of_the_day_fragment, container, false)
-    }
+    private val app by lazy { requireActivity().application as NasaApplication }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+        viewModel.initViewModel(app.podRepo, app.podService, app.apiKey)
         viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onPodLoaded(it) })
 
         binding.podChipGroup.setOnCheckedChangeListener { _, checkedId ->
-            viewModel.onDayChipChanged(checkedId)
+            viewModel.onDayChipChanged(
+                when (checkedId) {
+                    R.id.pod_chip_today -> Days.TODAY
+                    R.id.pod_chip_yesterday -> Days.YESTERDAY
+                    R.id.pod_chip_before_yesterday -> Days.DAY_BEFORE_YESTERDAY
+                    else -> Days.TODAY
+                }
+            )
         }
         binding.podChipGroup.check(R.id.pod_chip_today)
     }
@@ -52,14 +55,27 @@ class PictureOfTheDayFragment : Fragment() {
                     .centerCrop()
                     .into(binding.podPictureImageView)
             }
-            is LoadPodState.Loading -> {}
+            is LoadPodState.Loading -> {
+            }
             is LoadPodState.Error -> {
-                Snackbar.make(binding.podRootLayout, getString(state.error), Snackbar.LENGTH_SHORT)
-                    .setAction(getString(R.string.snack_bar_action_text)) {
-                        viewModel.reloadClicked()
-                    }
-                    .show()
+                binding.podRootLayout.showSnackBar(
+                    when (state.error) {
+                        LoadPodError.LOAD_ERROR -> getString(R.string.load_error)
+                        LoadPodError.SERVER_ERROR -> getString(R.string.server_error)
+                        LoadPodError.NOT_IMAGE_ERROR -> getString(R.string.not_image_error)
+                    },
+                    getString(R.string.snack_bar_action_text),
+                    { viewModel.reloadClicked() }
+                )
             }
         }
+    }
+}
+
+class Days {
+    companion object {
+        const val TODAY = 0
+        const val YESTERDAY = -1
+        const val DAY_BEFORE_YESTERDAY = -2
     }
 }

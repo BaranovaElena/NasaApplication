@@ -58,17 +58,20 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setNewTheme(checkedId: Int) {
-        when (checkedId) {
-            R.id.settings_themes_radio_default ->
-                (requireActivity() as Controller).saveTheme(Themes.DEFAULT.ordinal)
-            R.id.settings_themes_radio_indigo ->
-                (requireActivity() as Controller).saveTheme(Themes.INDIGO.ordinal)
-            R.id.settings_themes_radio_red ->
-                (requireActivity() as Controller).saveTheme(Themes.RED.ordinal)
-        }
+        (requireActivity() as Controller).removeSettingsFragmentFromBackStack()
+
+        (requireActivity() as Controller).saveTheme(
+            when (checkedId) {
+                R.id.settings_themes_radio_default -> Themes.DEFAULT.ordinal
+                R.id.settings_themes_radio_indigo -> Themes.INDIGO.ordinal
+                R.id.settings_themes_radio_red -> Themes.RED.ordinal
+                else -> Themes.DEFAULT.ordinal
+            }
+        )
     }
 
     interface Controller {
         fun saveTheme(theme: Int)
+        fun removeSettingsFragmentFromBackStack()
     }
 }

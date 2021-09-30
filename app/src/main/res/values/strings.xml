@@ -7,9 +7,11 @@
     <string name="not_image_error">Loaded picture of the day is not a picture today :(</string>
     <string name="snack_bar_action_text">Reload</string>
 
-    <!-- bottom navigation -->
+    <!-- navigation -->
     <string name="nav_pod_title">Daily photo</string>
     <string name="nav_settings_title">Settings</string>
+    <string name="nav_weather_title">Weather</string>
+    <string name="nav_planets_title">Planets</string>
 
     <!-- picture of the day fragment -->
     <string name="pod_chip_today_text">Today</string>
@@ -21,4 +23,16 @@
     <string name="theme_default">Default</string>
     <string name="theme_indigo">Indigo</string>
     <string name="theme_red">Red</string>
+
+    <!-- weather fragment -->
+    <string name="weather_tab_space_title">In space</string>
+    <string name="weather_tab_mars_title">At Mars</string>
+    <string name="space_weather_title_text">Space Weather Notifications</string>
+    <string name="mars_weather_title_text">The weather on Mars has not been updated for a long time</string>
+
+    <!-- planets fragment -->
+    <string name="planets_tab_earth_title">Earth</string>
+    <string name="planets_tab_mars_title">Mars</string>
+    <string name="planet_mars_sol_title">Sol (Martian day):</string>
+    <string name="planet_mars_day_title">Date (Earth date):</string>
 </resources>

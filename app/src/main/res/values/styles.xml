@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="theme_images_style">
+    <style name="themeImagesStyle">
         <item name="android:layout_weight">1</item>
         <item name="android:scaleType">fitStart</item>
         <item name="android:layout_margin">@dimen/settings_theme_image_margin</item>
     </style>
-
-    <style name="nasaRadioButton" parent="@style/Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="shapeAppearance"></item>
+    <style name="marsTimeTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/mars_photo_times_title_text_size</item>
     </style>
+    <style name="marsTimeValueStyle" parent="marsTimeTitleStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/mars_photo_times_value_text_size</item>
+    </style>
+
 </resources>

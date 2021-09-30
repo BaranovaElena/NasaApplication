@@ -9,4 +9,14 @@
     <dimen name="settings_theme_title_text_size">24sp</dimen>
     <dimen name="settings_theme_image_margin">6dp</dimen>
     <dimen name="settings_theme_image_layout_height">250dp</dimen>
+    <dimen name="space_weather_title_text_size">24sp</dimen>
+    <dimen name="space_weather_padding_default">8dp</dimen>
+    <dimen name="space_weather_msg_type_text_size">16sp</dimen>
+    <dimen name="mars_weather_title_text_size">22sp</dimen>
+    <dimen name="earth_photo_caption_text_size">18sp</dimen>
+    <dimen name="earth_photo_date_time_text_size">20sp</dimen>
+    <dimen name="earth_padding_default">8dp</dimen>
+    <dimen name="mars_photo_times_title_text_size">16sp</dimen>
+    <dimen name="mars_photo_times_value_text_size">24sp</dimen>
+    <dimen name="mars_padding_default">8dp</dimen>
 </resources>
