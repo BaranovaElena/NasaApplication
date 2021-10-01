@@ -7,8 +7,9 @@
     tools:context=".ui.weather.mars.MarsWeatherFragment">
 
     <TextView
+        android:id="@+id/mars_weather_title_text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/mars_weather_title_text"
         android:textSize="@dimen/mars_weather_title_text_size"

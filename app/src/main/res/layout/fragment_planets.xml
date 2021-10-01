@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".ui.planets.PlanetsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -21,16 +20,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/planets_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/planets_app_bar_height"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="@dimen/planets_app_bar_height">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/planets_collapsing_tool_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|snap">
 
@@ -38,7 +34,6 @@
                 android:id="@+id/planets_collapsing_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
                 app:srcCompat="@drawable/planets"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
