@@ -29,6 +29,7 @@
     <string name="weather_tab_mars_title">At Mars</string>
     <string name="space_weather_title_text">Space Weather Notifications</string>
     <string name="mars_weather_title_text">The weather on Mars has not been updated for a long time</string>
+    <string name="mars_weather_search_wiki_hint">Search in Wiki</string>
 
     <!-- planets fragment -->
     <string name="planets_tab_earth_title">Earth</string>

@@ -30,6 +30,7 @@
     <string name="weather_tab_mars_title">На Марсе</string>
     <string name="space_weather_title_text">Уведомления о космической погоде</string>
     <string name="mars_weather_title_text">Погода на Марсе долгое время не обновлялась</string>
+    <string name="mars_weather_search_wiki_hint">Поиск в Википедии</string>
 
     <!-- planets fragment -->
     <string name="planets_tab_earth_title">Земля</string>
