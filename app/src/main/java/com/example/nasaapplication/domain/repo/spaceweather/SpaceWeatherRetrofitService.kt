@@ -5,10 +5,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val SPACE_WEATHER_URL = "DONKI/notifications"
-
 interface SpaceWeatherRetrofitService {
-    @GET(SPACE_WEATHER_URL)
+    @GET("DONKI/notifications")
     fun getSpaceWeather(
         @Query("startDate") startDate: String,
         @Query("endDate") endDate: String,

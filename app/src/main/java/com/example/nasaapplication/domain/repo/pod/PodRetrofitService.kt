@@ -5,10 +5,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val POD_URL = "planetary/apod/"
-
 interface PodRetrofitService {
-    @GET(POD_URL)
+    @GET("planetary/apod/")
     fun getPictureOfTheDay(
         @Query("date") date: String,
         @Query("api_key") key: String

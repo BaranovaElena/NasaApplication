@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@+id/start_state"
+        motion:constraintSetEnd="@+id/end_state"
+        motion:duration="500">
+        <OnClick motion:targetId="@id/mars_weather_wiki_image_view" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start_state">
+        <Constraint
+            android:id="@+id/mars_weather_wiki_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mars_weather_wiki_input_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/mars_weather_wiki_input_layout" />
+        <Constraint
+            android:id="@+id/mars_weather_wiki_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mars_weather_title_text_view"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end_state">
+        <Constraint
+            android:id="@+id/mars_weather_wiki_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mars_weather_wiki_input_layout"
+            motion:layout_constraintEnd_toStartOf="@+id/mars_weather_wiki_input_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/mars_weather_wiki_input_layout" />
+        <Constraint
+            android:id="@+id/mars_weather_wiki_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mars_weather_title_text_view"
+            app:layout_constraintStart_toEndOf="@+id/mars_weather_wiki_image_view"
+            motion:layout_constraintEnd_toEndOf="parent"/>
+    </ConstraintSet>
+</MotionScene>

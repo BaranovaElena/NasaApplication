@@ -5,10 +5,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val EPIC_URL = "EPIC/api/natural"
-
 interface EarthPhotoRetrofitService {
-    @GET(EPIC_URL)
+    @GET("EPIC/api/natural")
     fun getEarthPhoto(
         @Query("api_key") key: String
     ): Call<List<EarthPhotoEntity>>
