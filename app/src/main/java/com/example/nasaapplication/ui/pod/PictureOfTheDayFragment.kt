@@ -30,6 +30,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
         viewModel.initViewModel(app.podRepo, app.podService, app.apiKey)
         viewModel.loadStateLiveData.observe(viewLifecycleOwner, { onPodLoaded(it) })
+        viewModel.picturePositionLiveData.observe(viewLifecycleOwner, {onPicturePositionChanged(it)})
 
         binding.podChipGroup.setOnCheckedChangeListener { _, checkedId ->
             viewModel.onDayChipChanged(
@@ -54,6 +55,10 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                     .load(state.picture)
                     .centerCrop()
                     .into(binding.podPictureImageView)
+
+                binding.podPictureImageView.setOnClickListener {
+                    viewModel.onImageClicked(state.picture)
+                }
             }
             is LoadPodState.Loading -> {
             }
@@ -69,6 +74,17 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                 )
             }
         }
+    }
+
+    private fun onPicturePositionChanged(picture: String?) {
+        picture?.let {
+            (requireActivity() as Controller).showFullScreenPicture(picture)
+            viewModel.onFullScreenCommandSend()
+        }
+    }
+
+    interface Controller {
+        fun showFullScreenPicture(pictureUrl: String)
     }
 }
 

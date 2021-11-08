@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.nasaapplication.FullScreenPictureFragment
 import com.example.nasaapplication.ui.planets.PlanetsFragment
 import com.example.nasaapplication.R
 import com.example.nasaapplication.ui.weather.WeatherFragment
@@ -17,7 +19,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val SHARED_PREFERENCES_NAME = "settings"
 
-class MainActivity : AppCompatActivity(), SettingsFragment.Controller {
+class MainActivity : AppCompatActivity(), SettingsFragment.Controller,
+    PictureOfTheDayFragment.Controller, FullScreenPictureFragment.Controller {
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
     private var bottomNavigationView: BottomNavigationView? = null
 
@@ -67,7 +70,7 @@ class MainActivity : AppCompatActivity(), SettingsFragment.Controller {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.app_bar_settings -> {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_container, SettingsFragment.newInstance(currentTheme))
@@ -106,6 +109,21 @@ class MainActivity : AppCompatActivity(), SettingsFragment.Controller {
             putInt(sharedValueNameTheme, theme)
             apply()
         }
+    }
+
+    override fun showFullScreenPicture(pictureUrl: String) {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.root_container, FullScreenPictureFragment.newInstance(pictureUrl))
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun hideNavigation() {
+        binding.bottomNavigationView.isVisible = false
+    }
+
+    override fun showNavigation() {
+        binding.bottomNavigationView.isVisible = true
     }
 }
 

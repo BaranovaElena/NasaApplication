@@ -39,4 +39,7 @@
     <!-- settings fragment -->
     <color name="settings_background">@color/indigo_100</color>
 
+    <!-- fullscreen fragment -->
+    <color name="fullscreen_background">#EB000000</color>
+
 </resources>
