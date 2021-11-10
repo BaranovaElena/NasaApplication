@@ -1,18 +1,22 @@
 package com.example.nasaapplication
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.nasaapplication.databinding.FragmentFullScreenPictureBinding
+import androidx.transition.TransitionInflater
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 
 class FullScreenPictureFragment : Fragment(R.layout.fragment_full_screen_picture) {
     private val binding: FragmentFullScreenPictureBinding by viewBinding(
         FragmentFullScreenPictureBinding::bind
     )
-
-    private var pictureUrl: String? = null
 
     companion object {
         const val BUNDLE_EXTRA_KEY = "PICTURE_BUNDLE_EXTRA_KEY"
@@ -25,17 +29,40 @@ class FullScreenPictureFragment : Fragment(R.layout.fragment_full_screen_picture
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pictureUrl = arguments?.getString(BUNDLE_EXTRA_KEY)
-
-        (requireActivity() as Controller).hideNavigation()
+        val pictureUrl = arguments?.getString(BUNDLE_EXTRA_KEY)
 
         binding.closeButton.setOnClickListener {
-            requireActivity().onBackPressed()
+            (requireActivity() as Controller).closeFullScreen()
         }
+
+        (requireActivity() as Controller).hideNavigation()
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(R.transition.inflate_transition)
+        if (savedInstanceState == null) {
+            postponeEnterTransition()
+        }
+        binding.fullScreenImageView.transitionName = pictureUrl
 
         Glide.with(this)
             .load(pictureUrl)
-            .into(binding.mainImageView)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?, model: Any?,
+                    target: Target<Drawable>?, isFirstResource: Boolean
+                ): Boolean {
+                    startPostponedEnterTransition()
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?, model: Any?, target: Target<Drawable>?,
+                    dataSource: DataSource?, isFirstResource: Boolean
+                ): Boolean {
+                    startPostponedEnterTransition()
+                    return false
+                }
+            })
+            .into(binding.fullScreenImageView)
     }
 
     override fun onDestroy() {
@@ -46,5 +73,6 @@ class FullScreenPictureFragment : Fragment(R.layout.fragment_full_screen_picture
     interface Controller {
         fun hideNavigation()
         fun showNavigation()
+        fun closeFullScreen()
     }
 }

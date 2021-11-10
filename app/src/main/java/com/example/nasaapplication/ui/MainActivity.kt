@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -111,9 +112,11 @@ class MainActivity : AppCompatActivity(), SettingsFragment.Controller,
         }
     }
 
-    override fun showFullScreenPicture(pictureUrl: String) {
+    override fun showFullScreenPicture(pictureUrl: String,  view: View) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.root_container, FullScreenPictureFragment.newInstance(pictureUrl))
+            .setReorderingAllowed(true)
+            .addSharedElement(view, view.transitionName)
+            .replace(R.id.fragment_container, FullScreenPictureFragment.newInstance(pictureUrl))
             .addToBackStack(null)
             .commit()
     }
@@ -124,6 +127,10 @@ class MainActivity : AppCompatActivity(), SettingsFragment.Controller,
 
     override fun showNavigation() {
         binding.bottomNavigationView.isVisible = true
+    }
+
+    override fun closeFullScreen() {
+        onBackPressed()
     }
 }
 

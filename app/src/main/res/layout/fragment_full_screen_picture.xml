@@ -7,7 +7,7 @@
     tools:context=".FullScreenPictureFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_image_view"
+        android:id="@+id/full_screen_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/fullscreen_background"
