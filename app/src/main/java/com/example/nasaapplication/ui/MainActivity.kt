@@ -9,7 +9,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.nasaapplication.FullScreenPictureFragment
 import com.example.nasaapplication.ui.planets.PlanetsFragment
 import com.example.nasaapplication.R
 import com.example.nasaapplication.ui.weather.WeatherFragment

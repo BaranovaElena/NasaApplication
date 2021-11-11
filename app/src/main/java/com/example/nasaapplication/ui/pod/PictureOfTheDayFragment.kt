@@ -27,6 +27,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
     }
 
     private lateinit var viewModel: PictureOfTheDayViewModel
+    private var chipState: Boolean = false
 
     private val app by lazy { requireActivity().application as NasaApplication }
 
@@ -49,12 +50,17 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                 }
             )
         }
-        binding.podChipGroup.check(R.id.pod_chip_today)
+        if (!chipState) {
+            binding.podChipGroup.check(R.id.pod_chip_today)
+            chipState = true
+        }
     }
 
     private fun onPodLoaded(state: LoadPodState) {
         when (state) {
             is LoadPodState.Success -> {
+                binding.podPictureImageView.transitionName = state.picture
+
                 binding.podTitleTextView.text = state.title
                 binding.podDescriptionTextView.text = state.description
 
@@ -86,6 +92,7 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
             is LoadPodState.Loading -> {
             }
             is LoadPodState.Error -> {
+                startPostponedEnterTransition()
                 binding.podRootLayout.showSnackBar(
                     when (state.error) {
                         LoadPodError.LOAD_ERROR -> getString(R.string.load_error)
@@ -101,7 +108,6 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
 
     private fun onPicturePositionChanged(picture: String?) {
         picture?.let {
-            binding.podPictureImageView.transitionName = picture
             (requireActivity() as Controller).showFullScreenPicture(picture, binding.podPictureImageView)
             viewModel.onFullScreenCommandSend()
         }
