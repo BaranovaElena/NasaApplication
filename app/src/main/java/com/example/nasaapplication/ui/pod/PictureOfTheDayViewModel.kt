@@ -18,6 +18,8 @@ private const val MEDIA_TYPE_IMAGE = "image"
 class PictureOfTheDayViewModel : ViewModel() {
     private var loadStateLiveDataMutable: MutableLiveData<LoadPodState> = MutableLiveData()
     var loadStateLiveData: LiveData<LoadPodState> = loadStateLiveDataMutable
+    private var picturePositionLiveDataMutable: MutableLiveData<String?> = MutableLiveData(null)
+    var picturePositionLiveData: LiveData<String?> = picturePositionLiveDataMutable
 
     private var formattedDate = ""
     private lateinit var repo: PodRepo
@@ -69,5 +71,13 @@ class PictureOfTheDayViewModel : ViewModel() {
     fun reloadClicked() {
         loadStateLiveDataMutable.value = LoadPodState.Loading
         repo.getPictureOfTheDay(retrofitCallback, service, formattedDate, apiKey)
+    }
+
+    fun onImageClicked(picture: String) {
+        picturePositionLiveDataMutable.value = picture
+    }
+
+    fun onFullScreenCommandSend() {
+        picturePositionLiveDataMutable.value = null
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.FullScreenPictureFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/full_screen_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fullscreen_background"
+        android:scaleType="fitCenter"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/close_button"
+        android:layout_width="@dimen/fullscreen_close_button_dimen"
+        android:layout_height="@dimen/fullscreen_close_button_dimen"
+        android:src="@drawable/ic_close"
+        android:backgroundTintMode="src_atop"
+        android:backgroundTint="@color/fullscreen_background"
+        android:scaleType="centerCrop" />
+
+</FrameLayout>
