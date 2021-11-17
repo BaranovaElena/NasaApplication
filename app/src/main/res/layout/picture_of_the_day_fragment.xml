@@ -70,6 +70,7 @@
                 android:id="@+id/pod_description_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="More Fonts..."
                 android:textSize="@dimen/pod_description_text_size" />
         </FrameLayout>
 
