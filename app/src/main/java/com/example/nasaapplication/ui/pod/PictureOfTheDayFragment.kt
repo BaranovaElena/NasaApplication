@@ -1,10 +1,16 @@
 package com.example.nasaapplication.ui.pod
 
+import android.graphics.Typeface.BOLD
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.TextView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.nasaapplication.NasaApplication
@@ -61,8 +67,8 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
             is LoadPodState.Success -> {
                 binding.podPictureImageView.transitionName = state.picture
 
-                binding.podTitleTextView.text = state.title
-                binding.podDescriptionTextView.text = state.description
+                setColoredText(binding.podTitleTextView, state.title)
+                setColoredText(binding.podDescriptionTextView, state.description)
 
                 Glide.with(this)
                     .load(state.picture)
@@ -104,6 +110,24 @@ class PictureOfTheDayFragment : Fragment(R.layout.picture_of_the_day_fragment) {
                 )
             }
         }
+    }
+
+    private fun setColoredText(view: TextView, text: String) {
+        val spannable = SpannableString(text)
+        for (i in text.indices) {
+            if (text[i].isDigit()) {
+                spannable.setSpan(StyleSpan(BOLD), i, i+1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            } else if (text[i].isUpperCase()) {
+                spannable.setSpan(
+                    context?.getColor(R.color.pod_upper_text_color)?.let { ForegroundColorSpan(it) },
+                    i,
+                    i+1,
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                )
+                spannable.setSpan(StyleSpan(BOLD), i, i+1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            }
+        }
+        view.text = spannable
     }
 
     private fun onPicturePositionChanged(picture: String?) {
