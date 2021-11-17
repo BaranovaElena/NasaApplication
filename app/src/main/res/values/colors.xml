@@ -32,6 +32,7 @@
     <color name="pod_background">@color/indigo_100</color>
     <color name="pod_bottom_sheet_background">@color/indigo_200</color>
     <color name="pod_text_color">@color/black</color>
+    <color name="pod_upper_text_color">@color/red_800</color>
 
     <!-- bottom navigation -->
     <color name="bottom_nav_background">@color/indigo_100</color>

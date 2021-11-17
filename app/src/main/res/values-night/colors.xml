@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pod_upper_text_color">@color/red_300</color>
+</resources>
