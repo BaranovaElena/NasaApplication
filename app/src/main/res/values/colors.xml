@@ -43,4 +43,6 @@
     <!-- fullscreen fragment -->
     <color name="fullscreen_background">@color/black</color>
 
+    <color name="splash_background">@color/indigo_200</color>
+
 </resources>
