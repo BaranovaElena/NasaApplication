@@ -21,5 +21,6 @@
     <dimen name="mars_padding_default">8dp</dimen>
     <dimen name="planets_app_bar_height">330dp</dimen>
     <dimen name="fullscreen_close_button_dimen">70dp</dimen>
+    <dimen name="splach_icon_dimen">300dp</dimen>
     <integer name="transition_inflate_duration">1000</integer>
 </resources>

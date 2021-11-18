@@ -17,6 +17,7 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
 
         <item name="fontFamily">@font/jura_light</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <style name="Theme.NasaApplication.Indigo" parent="Theme.NasaApplication">
